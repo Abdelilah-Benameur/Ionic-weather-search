@@ -1,0 +1,7 @@
+{
+  "name": "CityClima",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

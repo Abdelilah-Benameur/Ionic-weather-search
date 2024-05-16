@@ -1,0 +1,63 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>meteoWidget</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">meteoWidget</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div>
+    <ion-back-button defaultHref="/home" class="small-back-button"
+      >Back!!!</ion-back-button
+    >
+    <ion-card>
+      <ion-card-header>
+        <div>
+          <ion-input
+            class="searchh"
+            type="text"
+            [(ngModel)]="citys"
+            placeholder="    Enter a city"
+          >
+          </ion-input>
+        </div>
+        <br />
+        <div>
+          <ion-button class="btn" ng (click)="csearch()">Search </ion-button>
+          <p *ngIf="errorMessage" class="error-message" style="color: brown">
+            {{ errorMessage }}
+          </p>
+        </div>
+        <ion-card-title *ngIf="searchPerformed">Weather</ion-card-title>
+        <ion-card-subtitle>{{pays}}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <img
+            [hidden]="!isible"
+            src="https://flagsapi.com/{{pays}}/flat/64.png"
+          />
+
+          <ion-item *ngIf="searchPerformed">
+            <ion-label>City: {{ville}}</ion-label>
+          </ion-item>
+
+          <ion-item *ngIf="searchPerformed">
+            <ion-label>Temperature: {{temp}} °C</ion-label>
+          </ion-item>
+          <ion-item *ngIf="searchPerformed">
+            <ion-label>pressure: {{pres}} hPa</ion-label>
+          </ion-item>
+          <ion-item *ngIf="searchPerformed">
+            <ion-label>Humidity: {{hum}} %</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
